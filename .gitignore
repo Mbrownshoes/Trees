@@ -12,5 +12,5 @@ repo.git.zip
 
 >>>>>>> d4e2f12ecd0f8de1bb72bfacc70907a3b0d91258
 Rakefile
-street_tree_data_wgs84/
-street_tree_data_wgs84/
+street_tree_data_wgs84/*
+
