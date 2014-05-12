@@ -1,7 +1,7 @@
 <<<<<<< HEAD
 *.pyc
 .*swp
-street_tree_data_wgs84/*
+/street_tree_data_wgs84/*
 
 =======
 target
