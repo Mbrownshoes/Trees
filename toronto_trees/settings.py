@@ -99,15 +99,6 @@ DATABASES = {
     }
 }
 
-# Heroku
-HEROKU = bool(os.environ.get('DATABASE_URL'))
-
-if HEROKU:
-    import dj_database_url
-    DATABASES['default'] = dj_database_url.config()
-    DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
-    POSTGIS_VERSION = (2, 1, 0)
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 

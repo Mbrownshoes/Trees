@@ -14,7 +14,7 @@ trees_mapping = {
     'geom' : 'MULTIPOINT',
 }
 
-tree_shp = os.path.abspath('street_tree_data_wgs84/Street_tree_general_data_wgs84.shp')
+tree_shp = os.path.abspath('street_tree_data_wgs84/street_tree_general_data_wgs84.shp')
 
 def run(verbose=True):
     lm = LayerMapping(Trees, tree_shp, trees_mapping, transform=False)
