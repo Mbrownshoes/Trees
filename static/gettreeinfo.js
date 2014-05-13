@@ -43,6 +43,7 @@ map.addLayer(layer);
 
 
 
+
 map.setCenter(new OpenLayers.LonLat(-79.3836,43.6525).transform(geographic,mercator), 15); 
 
 map.events.register('click', map, function (e) {
