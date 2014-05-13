@@ -59,7 +59,7 @@ map.events.register('click', map, function (e) {
 
   if (url) {
     document.getElementById('info').innerHTML =
-    '<iframe seamless src="' + url + '"></iframe>';
+    '<iframe seamless src="' + url + '" scrolling="no"  height=100%></iframe>';
   }
 });
 
