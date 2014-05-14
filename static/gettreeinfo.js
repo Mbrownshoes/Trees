@@ -80,7 +80,7 @@ OpenLayers.Control.ListenToClick = OpenLayers.Class(OpenLayers.Control, {
 
     if (url) {
       document.getElementById('info').innerHTML =
-      '<iframe seamless src="' + url + '" scrolling="no"  height=200%></iframe>';
+      '<iframe seamless src="' + url + '" scrolling="no"  frameBorder="0" height=200%></iframe>';
     }
     url.activate();
   },
