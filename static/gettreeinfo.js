@@ -41,27 +41,76 @@ map.addLayer(layer);
 //   make_layer("http://overpass-api.de/api/interpreter?data=[timeout:3];node[natural=tree](bbox);out+skel;(way[natural=tree](bbox);node(w););out+skel;", "green")
 //   ]); 
 
-
-
-
 map.setCenter(new OpenLayers.LonLat(-79.3836,43.6525).transform(geographic,mercator), 15); 
 
-map.events.register('click', map, function (e) {
-  var url =  layer.getFullRequestString({
-    REQUEST: "GetFeatureInfo",
-    EXCEPTIONS: "application/vnd.ogc.se_xml",
-    BBOX: layer.map.getExtent().toBBOX(),
-    X: e.xy.x,
-    Y: e.xy.y,
-    INFO_FORMAT: 'text/html',
-    QUERY_LAYERS: layer.params.LAYERS,
-    WIDTH: layer.map.size.w,
-    HEIGHT: layer.map.size.h});
 
-  if (url) {
-    document.getElementById('info').innerHTML =
-    '<iframe seamless src="' + url + '" scrolling="no"  height=100%></iframe>';
+
+OpenLayers.Control.ListenToClick = OpenLayers.Class(OpenLayers.Control, {
+  defaultHandlerOptions: {
+    'single': true,
+    'pixelTolerance': 0,
+    'stopSingle': false
+  },
+
+  initialize: function(options) {
+    this.handlerOptions = OpenLayers.Util.extend(
+      {}, this.defaultHandlerOptions
+      );
+    OpenLayers.Control.prototype.initialize.apply(
+      this, arguments
+      ); 
+    this.handler = new OpenLayers.Handler.Click(
+      this, {
+        'click': this.onClick,
+      }, this.handlerOptions
+      );
+  }, 
+
+  onClick: function (e) {
+    var url =  layer.getFullRequestString({
+      REQUEST: "GetFeatureInfo",
+      EXCEPTIONS: "application/vnd.ogc.se_xml",
+      BBOX: layer.map.getExtent().toBBOX(),
+      X: e.xy.x,
+      Y: e.xy.y,
+      INFO_FORMAT: 'text/html',
+      QUERY_LAYERS: layer.params.LAYERS,
+      WIDTH: layer.map.size.w,
+      HEIGHT: layer.map.size.h});
+
+    if (url) {
+      document.getElementById('info').innerHTML =
+      '<iframe seamless src="' + url + '" scrolling="no"  height=200%></iframe>';
+    }
+    url.activate();
+  },
+});
+var ctmControl = new OpenLayers.Control.ListenToClick({
+  handlerOptions: {
+    'single': true,
+    'pixelTolerance': 0,
+    'stopSingle': false
   }
 });
+map.addControl(ctmControl);
+ctmControl.activate();
+// map.events.register('click', map, function (e) {
+//   var url =  layer.getFullRequestString({
+//     REQUEST: "GetFeatureInfo",
+//     EXCEPTIONS: "application/vnd.ogc.se_xml",
+//     BBOX: layer.map.getExtent().toBBOX(),
+//     X: e.xy.x,
+//     Y: e.xy.y,
+//     INFO_FORMAT: 'text/html',
+//     QUERY_LAYERS: layer.params.LAYERS,
+//     WIDTH: layer.map.size.w,
+//     HEIGHT: layer.map.size.h});
+
+//   if (url) {
+//     document.getElementById('info').innerHTML =
+//     '<iframe seamless src="' + url + '" scrolling="no"  height=100%></iframe>';
+//   }
+//   url.activate();
+// });
 
 }
