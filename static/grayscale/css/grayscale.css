@@ -360,7 +360,7 @@ a:focus {
 }
 
 .contact {
-    padding: 100px 0px;
+    padding-top:100px;
 }
 
 @media(min-width:767px) {
