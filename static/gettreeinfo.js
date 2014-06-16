@@ -43,6 +43,7 @@ map.addLayer(layer);
 
 map.setCenter(new OpenLayers.LonLat(-79.3836,43.6525).transform(geographic,mercator), 15); 
 
+map.addControl(new OpenLayers.Control.LayerSwitcher());
 
 
 OpenLayers.Control.ListenToClick = OpenLayers.Class(OpenLayers.Control, {
@@ -65,6 +66,7 @@ OpenLayers.Control.ListenToClick = OpenLayers.Class(OpenLayers.Control, {
       }, this.handlerOptions
       );
   }, 
+
 
   onClick: function (e) {
     var url =  layer.getFullRequestString({
@@ -94,23 +96,6 @@ var ctmControl = new OpenLayers.Control.ListenToClick({
 });
 map.addControl(ctmControl);
 ctmControl.activate();
-// map.events.register('click', map, function (e) {
-//   var url =  layer.getFullRequestString({
-//     REQUEST: "GetFeatureInfo",
-//     EXCEPTIONS: "application/vnd.ogc.se_xml",
-//     BBOX: layer.map.getExtent().toBBOX(),
-//     X: e.xy.x,
-//     Y: e.xy.y,
-//     INFO_FORMAT: 'text/html',
-//     QUERY_LAYERS: layer.params.LAYERS,
-//     WIDTH: layer.map.size.w,
-//     HEIGHT: layer.map.size.h});
 
-//   if (url) {
-//     document.getElementById('info').innerHTML =
-//     '<iframe seamless src="' + url + '" scrolling="no"  height=100%></iframe>';
-//   }
-//   url.activate();
-// });
 
 }

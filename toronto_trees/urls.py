@@ -1,3 +1,5 @@
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 from django.conf.urls import patterns, include, url
 from django.contrib.gis import admin
 
@@ -9,3 +11,4 @@ urlpatterns = patterns('',
     url(r'^treemap/', include('treemap.urls')),
         (r'^admin/', include(admin.site.urls)),
 )
+urlpatterns += staticfiles_urlpatterns()

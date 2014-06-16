@@ -278,6 +278,17 @@ a:focus {
   margin-top: 50px;
   left: 5px;
 }
+/*.olControlLayerSwitcher
+    {
+  margin-top: 50px;
+}*/
+
+ /*placement of the layerswitcher on map*/
+
+.olAlphaImg
+    {
+  margin-top: 50px;
+}
 
 @media(min-width:767px) {
     .map-section {
