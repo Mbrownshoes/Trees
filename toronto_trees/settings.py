@@ -33,14 +33,17 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.Loader',
 )
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 # TEMPLATE_DIRS = [os.path.join(BASE_DIR,'templates')]
 TEMPLATE_DIRS = (TEMPLATE_PATH,
     )
 
-ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['iguana.cs.toronto.edu',
+		 'iguana.cs.toronto.edu.',
+		'localhost']
 
 
 # Application definition
@@ -93,7 +96,7 @@ except:
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'treesdb',
+        'NAME': 'Treesdb',
         'PASSWORD': 'kopidulu',
 
     }
@@ -115,7 +118,7 @@ USE_TZ = True
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT = '/home/mbrown/sites/iguana.cs.toronto.edu/static/'
 
 STATIC_PATH = os.path.join(PROJECT_PATH,'static')
 

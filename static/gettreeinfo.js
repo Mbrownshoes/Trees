@@ -1,4 +1,5 @@
 
+
 var map, layer, info;
 function init(){
   var geographic = new OpenLayers.Projection("EPSG:4326");
@@ -32,8 +33,8 @@ var mapquestosm = new OpenLayers.Layer.MapQuestOSM();
 map.addLayers([mapquestosm]);
 
 // 
-layer = new OpenLayers.Layer.WMS("Trees", "http://localhost:8080/geoserver/cite/gwc/service/wms",
- {layers: 'cite:treemap_trees',transparent: true, tiled: true,styles: "zoom"},
+layer = new OpenLayers.Layer.WMS("Trees", "http://pbrown:8080/geoserver/cite/wms",
+ {layers: 'cite:treemap_trees',transparent: true, tiled: true,styles: "point"},
  {isBaseLayer: false}); 
 map.addLayer(layer);
 
