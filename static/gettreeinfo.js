@@ -1,11 +1,13 @@
 
 var map, layer, info;
+var apiKey = "AhjCmC4ThYrtk-3i-01G6buMsQBPOi0SfZO6CCOyhbd1XTHSkI1T_00AZiCBL1HV";
 function init(){
   var geographic = new OpenLayers.Projection("EPSG:4326");
   var mercator = new OpenLayers.Projection("EPSG:900913");
 
 
   map = new OpenLayers.Map( 'map',{projection: mercator} );
+  map.addControl(new OpenLayers.Control.LayerSwitcher());
 
 
 
@@ -28,22 +30,32 @@ OpenLayers.Layer.MapQuestOSM = OpenLayers.Class(OpenLayers.Layer.XYZ, {
       });
 
 
+
 var mapquestosm = new OpenLayers.Layer.MapQuestOSM();    
 map.addLayers([mapquestosm]);
 
+//bing satellite layer
+
+var aerial = new OpenLayers.Layer.Bing({
+                name: "Aerial",
+                key: apiKey,
+                type: "Aerial"
+            });
+
+map.addLayers([aerial]);
 // 
-layer = new OpenLayers.Layer.WMS("Trees", "http://localhost:8080/geoserver/cite/gwc/service/wms",
+layer = new OpenLayers.Layer.WMS("Trees", "http://pbrown.ca:8080/geoserver/cite/gwc/service/wms",
  {layers: 'cite:treemap_trees',transparent: true, tiled: true,styles: "zoom"},
  {isBaseLayer: false}); 
 map.addLayer(layer);
 
-// map.addLayers([
+// map.addLayers([ 
 //   make_layer("http://overpass-api.de/api/interpreter?data=[timeout:3];node[natural=tree](bbox);out+skel;(way[natural=tree](bbox);node(w););out+skel;", "green")
 //   ]); 
 
 map.setCenter(new OpenLayers.LonLat(-79.3836,43.6525).transform(geographic,mercator), 15); 
 
-map.addControl(new OpenLayers.Control.LayerSwitcher());
+
 
 
 OpenLayers.Control.ListenToClick = OpenLayers.Class(OpenLayers.Control, {
