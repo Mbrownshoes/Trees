@@ -11,3 +11,7 @@ class NewVisitorTest(FunctionalTest):
         self.assertIn('Tree Map', self.browser.title)
         header_text = self.browser.find_element_by_tag_name('h1'),text
         self.assertIn('Toronto Tree Map', header_text)
+
+        # He is invited to click on a tree to see tree info.
+        section_text = self.browser.find_element_by_id('id_tree_info')
+        self.assertIn("click on a tree")

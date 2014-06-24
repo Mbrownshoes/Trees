@@ -25,8 +25,5 @@ from models import Trees, Harbord
 
 def map_page(request):
      lcount = Trees.objects.all().count()
-     harbord = Harbord.objects.all()
-     results = Geocoder.geocode(harbord)
-     geo = results.cooridnates()
      return render_to_response('treemap/map.html', {'tree_count' : lcount}) 
 

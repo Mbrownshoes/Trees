@@ -1,3 +1,7 @@
+# Used this to load up harbord trees.
+# python manage.py shell
+# from treemap import load_up
+
 import os
 # os.environ.setdefault('DJANGO_SETTINGS_MODULE', 't.settings')
 
