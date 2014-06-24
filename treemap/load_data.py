@@ -1,4 +1,6 @@
 import os
+# didnt endup using this
+
 import time
 # from django.contrib.gis.utils import LayerMapping
 from django.contrib.gis.geos import fromstr
