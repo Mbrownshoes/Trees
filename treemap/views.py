@@ -1,9 +1,8 @@
 from django.shortcuts import render_to_response
-# from django.conf import settings
-# import mapnik
-# from django.contrib.gis.shortcuts import render_to_kml
+from pygeocoder import Geocoder
 
-from models import Trees
+
+from models import Trees, Harbord
 # from django.views.generic import TemplateView
 # Create your views here.
 
@@ -26,5 +25,8 @@ from models import Trees
 
 def map_page(request):
      lcount = Trees.objects.all().count()
+     harbord = Harbord.objects.all()
+     results = Geocoder.geocode(harbord)
+     geo = results.cooridnates()
      return render_to_response('treemap/map.html', {'tree_count' : lcount}) 
 

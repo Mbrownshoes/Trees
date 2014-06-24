@@ -54,7 +54,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.gis',
     'south',
-    'treemap'
+    'treemap',
+    'csvimport',
 )
 
 MIDDLEWARE_CLASSES = (

@@ -1,5 +1,4 @@
 from django.contrib.gis.db import models
-
 # Create your models here.
 
 class Trees(models.Model):
@@ -17,4 +16,24 @@ class Trees(models.Model):
 
     def __unicode__(self):
         return self.common_nam
+
+# from django.db import models
+
+class Harbord(models.Model):
+    Street = models.CharField(max_length=255)
+    HouseNumber = models.CharField(max_length=255)
+    CommonSpeciesNames = models.CharField(max_length=255)
+    Circumference = models.CharField(max_length=255)
+    DBH = models.CharField(max_length=255)
+    point = models.PointField()
+
+    objects = models.GeoManager()
+
+
+    def __unicode__(self):
+        return self.CommonSpeciesNames
+        # city ='Toronto'
+        # country = "Canada"
+        # return "%s %s %s %s" % (self.HouseNumber, self.Street, city,country)
+
 
