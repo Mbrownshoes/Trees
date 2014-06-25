@@ -44,10 +44,17 @@ var aerial = new OpenLayers.Layer.Bing({
 
 map.addLayers([aerial]);
 // 
-layer = new OpenLayers.Layer.WMS("Trees", "http://pbrown.ca:8080/geoserver/cite/gwc/service/wms",
- {layers: 'cite:treemap_trees',transparent: true, tiled: true,styles: "zoom"},
+layer = new OpenLayers.Layer.WMS("Trees", "http://localhost:8080/geoserver/cite/wms",
+ {layers: 'toronto_trees',transparent: true, tiled: true},
  {isBaseLayer: false}); 
 map.addLayer(layer);
+
+// Harbord layer
+// layer1 = new OpenLayers.Layer.WMS("Harbord Village", "http://localhost:8080/geoserver/cite/wms",
+//  {layers: 'cite:treemap_harbord',transparent: true, tiled: true,styles: "harbord"},
+//  {isBaseLayer: false}); 
+// map.addLayer(layer1);
+
 
 // map.addLayers([ 
 //   make_layer("http://overpass-api.de/api/interpreter?data=[timeout:3];node[natural=tree](bbox);out+skel;(way[natural=tree](bbox);node(w););out+skel;", "green")
@@ -80,6 +87,7 @@ OpenLayers.Control.ListenToClick = OpenLayers.Class(OpenLayers.Control, {
   }, 
 
 
+
   onClick: function (e) {
     var url =  layer.getFullRequestString({
       REQUEST: "GetFeatureInfo",
@@ -90,14 +98,22 @@ OpenLayers.Control.ListenToClick = OpenLayers.Class(OpenLayers.Control, {
       INFO_FORMAT: 'text/html',
       QUERY_LAYERS: layer.params.LAYERS,
       WIDTH: layer.map.size.w,
+      FEATURE_COUNT: 5,
       HEIGHT: layer.map.size.h});
+
 
     if (url) {
       document.getElementById('info').innerHTML =
       '<iframe seamless src="' + url + '" scrolling="no"  frameBorder="0" height=200%></iframe>';
     }
-    url.activate();
+    // url.activate();
   },
+
+
+
+
+
+
 });
 var ctmControl = new OpenLayers.Control.ListenToClick({
   handlerOptions: {

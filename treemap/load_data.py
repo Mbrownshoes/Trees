@@ -31,6 +31,7 @@ with open(tree_csv, "rU") as csvinput:
             # pygeocode stuff
             # time.sleep(1)
             results = Geocoder.geocode(add)
+            row[0] = results.route
             # print(isinstance(results, basestring))
             ind = results[0].coordinates
             lat=ind[0]

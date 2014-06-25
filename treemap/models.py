@@ -20,8 +20,8 @@ class Trees(models.Model):
 # from django.db import models
 
 class Harbord(models.Model):
-    Street = models.CharField(max_length=255)
-    HouseNumber = models.CharField(max_length=255)
+    Street = models.CharField(null=True, max_length=255)
+    HouseNumber = models.CharField(null=True,max_length=255)
     CommonSpeciesNames = models.CharField(max_length=255)
     Circumference = models.CharField(max_length=255)
     DBH = models.CharField(max_length=255)
