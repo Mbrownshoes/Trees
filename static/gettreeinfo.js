@@ -98,13 +98,13 @@ OpenLayers.Control.ListenToClick = OpenLayers.Class(OpenLayers.Control, {
       INFO_FORMAT: 'text/html',
       QUERY_LAYERS: layer.params.LAYERS,
       WIDTH: layer.map.size.w,
-      FEATURE_COUNT: 5,
+      FEATURE_COUNT: 10,
       HEIGHT: layer.map.size.h});
 
 
     if (url) {
       document.getElementById('info').innerHTML =
-      '<iframe seamless src="' + url + '" scrolling="no"  frameBorder="0" height=200%></iframe>';
+      '<iframe seamless src="' + url + '" scrolling="no" align="middle"  frameBorder="0" height=200%></iframe>';
     }
     // url.activate();
   },
