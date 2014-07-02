@@ -46,11 +46,11 @@ with open(tree_csv, "rU") as csvinput:
                     pass
                 #add street suffix to street    
                 row[0] = results.route
-                
+                # print(row)
                 latlong = row[5]   
-                print(latlong[2:end-1])
 
-                # point = fromstr("POINT(%s %s)" % (latlong[1], latlong[0]))
+
+                point = fromstr("POINT(%s %s)" % (latlong[1], latlong[0]))
                 # print(point)
 
                 # tree_obj = Harbord.objects.get_or_create(Street=row[0],HouseNumber=row[1],CommonSpeciesNames=row[2],Circumference=row[3], DBH=row[4], point=point)

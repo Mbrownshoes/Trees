@@ -13,8 +13,8 @@ for x in dupes:
     for i in ind:
         pnt = i.point
         y=([coord for coord in pnt])
-        y[1]= random.uniform(y[1],y[1]+0.00005)
-        y[0]= random.uniform(y[0],y[0]+0.00005)
+        y[1]= random.uniform(y[1],y[1]+0.0001)
+        y[0]= random.uniform(y[0],y[0]+0.0001)
         i.point[1] =y[1]
         i.point[0] =y[0]
         # test.append(i)
