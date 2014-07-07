@@ -44,7 +44,7 @@ var aerial = new OpenLayers.Layer.Bing({
 
 map.addLayers([aerial]);
 // 
-layer = new OpenLayers.Layer.WMS("Trees", "http://localhost:8080/geoserver/cite/wms",
+layer = new OpenLayers.Layer.WMS("Trees", "http://pbrown.ca:8080/geoserver/cite/wms",
  {layers: 'toronto_trees',transparent: true, tiled: true},
  {isBaseLayer: false}); 
 map.addLayer(layer);
