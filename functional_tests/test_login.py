@@ -7,7 +7,7 @@ class LoginTest(FunctionalTest):
     def test_login_with_persona(self):
         #Arlo goes to the awesome treemap site and notices a "Sign in" link for the first time.
         self.browser.get(self.server_url + "/treemap")
-        self.browser.find_element_by_id('login').click()
+        self.browser.find_element_by_id('id_login').click()
 
         # A Persona Login box appears
         self.switch_to_new_window('Mozilla Persona')
@@ -23,7 +23,7 @@ class LoginTest(FunctionalTest):
         self.switch_to_new_window('Toronto Tree Map')
 
         #He can see that he is logged in
-        self.wait_for_element_with_id('logout')
+        self.wait_for_element_with_id('id_logout')
         navbar = self.browser.find_element_by_css_selector('.navbar-nav')
         self.assertIn('arlo@mockmyid.com', navbar.text)
 

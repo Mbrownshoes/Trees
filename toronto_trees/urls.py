@@ -10,6 +10,6 @@ urlpatterns = patterns('',
     # url(r'^$', 'toronto_trees.views.home', name='home'),
     url(r'^treemap', include('treemap.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^accounts/', include('accounts.urls')), 
+    # url(r'^accounts/', include('accounts.urls')), 
 )
 urlpatterns += staticfiles_urlpatterns()

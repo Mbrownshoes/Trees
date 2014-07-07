@@ -55,13 +55,12 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.gis',
     'treemap',
-    'accounts',
 )
 
-AUTH_USER_MODEL = 'accounts.ListUser'
-AUTHENTICATION_BACKENDS = (
-    'accounts.authentication.PersonaAuthenticationBackend',
-)
+# AUTH_USER_MODEL = 'accounts.ListUser'
+# AUTHENTICATION_BACKENDS = (
+#     'accounts.authentication.PersonaAuthenticationBackend',
+# )
 
 
 MIDDLEWARE_CLASSES = (
