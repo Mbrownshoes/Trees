@@ -1,6 +1,6 @@
 import random, decimal
 from django.db.models import Count
-from models import Harbord
+from .models import Harbord
 
 
 dupes = Harbord.objects.values('point').annotate(Count('id')).order_by().filter(id__count__gt=1)

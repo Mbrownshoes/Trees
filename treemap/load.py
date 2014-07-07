@@ -1,6 +1,6 @@
 import os 
 from django.contrib.gis.utils import LayerMapping
-from models import Trees
+from .models import Trees
 
 trees_mapping = {
     'address_po' : 'ADDRESS_PO',

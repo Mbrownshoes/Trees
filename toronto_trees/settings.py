@@ -54,7 +54,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.gis',
-    'south',
     'treemap',
     'accounts',
 )
@@ -63,6 +62,7 @@ AUTH_USER_MODEL = 'accounts.ListUser'
 AUTHENTICATION_BACKENDS = (
     'accounts.authentication.PersonaAuthenticationBackend',
 )
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',

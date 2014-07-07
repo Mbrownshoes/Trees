@@ -15,7 +15,7 @@ class Trees(models.Model):
     objects = models.GeoManager()
     # mpoly = models.MultiPolygonField()
 
-    def __unicode__(self):
+    def __str__(self):
         return self.common_nam
 
 # from django.db import models
@@ -31,7 +31,7 @@ class Harbord(models.Model):
     objects = models.GeoManager()
 
 
-    def __unicode__(self):
+    def __str__(self):
         return self.CommonSpeciesNames
 
 # class UserProfile(models.Model):
