@@ -55,6 +55,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.gis',
     'treemap',
+    'accounts',
 )
 
 # AUTH_USER_MODEL = 'accounts.ListUser'
