@@ -8,8 +8,8 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'toronto_trees.views.home', name='home'),
-    url(r'^$', 'treemap.views.map_page', name='home'),
+    url(r'^$', 'treemap.views.map_page'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('accounts.urls')), 
 )
-urlpatterns += staticfiles_urlpatterns()
+# urlpatterns += staticfiles_urlpatterns()

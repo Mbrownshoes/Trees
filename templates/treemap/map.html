@@ -4,51 +4,51 @@
 {% block content %}
 {% csrf_token %}
 
- <section class="intro">
+<section class="intro">
     <div class="intro-body">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-md-offset-2">
-            <h1 class="brand-heading">Toronto tree map</h1>
-            <p class="intro-text"><br><br></p> <!-- line breaks are stupid but needed for first page to occupy pull page of mobile screen -->
-            <div class="page-scroll">
-              <a href="#main" class="btn btn-circle">
-                <i class="fa fa-chevron-circle-down animated"></i>
-              </a>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1 class="brand-heading">Toronto tree map</h1>
+                    <p class="intro-text"><br><br></p> <!-- line breaks are stupid but needed for first page to occupy pull page of mobile screen -->
+                    <div class="page-scroll">
+                        <a href="#main" class="btn btn-circle">
+                            <i class="fa fa-chevron-circle-down animated"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </section>
+</section>
 
 
-  <section id ='main' class=" map-section">
+<section id ='main' class=" map-section">
     <div id ="map" class="map"></div>
     <div class="sidebar">
-      <div id="info"></div>
+        <div id="info"></div>
     </div>
-  </section>
+</section>
 
 
-  <section id="about" class="content-section text-center">
+<section id="about" class="content-section text-center">
     <div class="about-section">
-      <div class="container">
-        <div class="col-lg-8 col-lg-offset-2">
-          <h2>About tree data</h2>
-          <p>Most of the data comes from the city of Toronto's tree database, last updated in 2012. Soon users will be able to add other city trees that are not currently in the database.</p>
-          <a href="https://www1.toronto.ca/wps/portal/contentonly?vgnextoid=5af95104c26f3310VgnVCM1000003dd60f89RCRD" class="btn btn-default btn-lg">Visit Street Tree Data</a>
+        <div class="container">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>About tree data</h2>
+                <p>Most of the data comes from the city of Toronto's tree database, last updated in 2012. Soon users will be able to add other city trees that are not currently in the database.</p>
+                <a href="https://www1.toronto.ca/wps/portal/contentonly?vgnextoid=5af95104c26f3310VgnVCM1000003dd60f89RCRD" class="btn btn-default btn-lg">Visit Street Tree Data</a>
+            </div>
         </div>
-      </div>
         <div id = "contact" class="contact">
-          <h2>Contact</h2>
-          <p>Feel free to email me to provide some feedback on the site, or to let me know of any other databases I can include.</p>
-          <p>mathew.brown@utoronto.ca</p>
-          <p>Mathew Brown, Postdoctoral Fellow at the University of Toronto, Department of Computer Science</p>
-          
+            <h2>Contact</h2>
+            <p>Feel free to email me to provide some feedback on the site, or to let me know of any other databases I can include.</p>
+            <p>mathew.brown@utoronto.ca</p>
+            <p>Mathew Brown, Postdoctoral Fellow at the University of Toronto, Department of Computer Science</p>
+
         </div>
-      </div>
-    </section>
+    </div>
+</section>
 
 </div>
 {% endblock %}
