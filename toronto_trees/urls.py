@@ -11,5 +11,7 @@ urlpatterns = patterns('',
     url(r'^$', 'treemap.views.map_page'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('accounts.urls')), 
+    url(r'', include('django_browserid.urls')),
+
 )
 # urlpatterns += staticfiles_urlpatterns()

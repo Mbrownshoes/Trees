@@ -13,7 +13,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SETTINGS_DIR = os.path.dirname(__file__)
 PROJECT_PATH = os.path.join(SETTINGS_DIR, os.pardir)
-PROJECT_PATH = os.path.abspath(PROJECT_PATH)
+# PROJECT_PATH = os.path.abspath(PROJECT_PATH)
 
 # DATABASE_PATH = os.path.join(PROJECT_PATH, 'rango.db')
 
@@ -49,6 +49,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
     'django.contrib.auth',
+    'django_browserid',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -58,10 +59,14 @@ INSTALLED_APPS = (
     'accounts',
 )
 
-AUTH_USER_MODEL = 'accounts.User'
 AUTHENTICATION_BACKENDS = (
-    'accounts.authentication.PersonaAuthenticationBackend',
+   # ...
+   'django.contrib.auth.backends.ModelBackend',
+   'django_browserid.auth.BrowserIDBackend',
+   # ...
 )
+
+LOGIN_REDIRECT_URL = '/'
 
 
 MIDDLEWARE_CLASSES = (
@@ -80,11 +85,11 @@ WSGI_APPLICATION = 'toronto_trees.wsgi.application'
 
 ## try and get heroku to work
 # GEOS from buildpack
-try:
-    GEOS_LIBRARY_PATH = os.path.join(os.environ['GEOS_LIBRARY_PATH'], 'libgeos_c.so')
-    GDAL_LIBRARY_PATH = os.path.join(os.environ['GDAL_LIBRARY_PATH'], 'libgdal.so')
-except:
-    pass
+# try:
+#     GEOS_LIBRARY_PATH = os.path.join(os.environ['GEOS_LIBRARY_PATH'], 'libgeos_c.so')
+#     GDAL_LIBRARY_PATH = os.path.join(os.environ['GDAL_LIBRARY_PATH'], 'libgdal.so')
+# except:
+#     pass
 
 #####    
 
@@ -167,6 +172,6 @@ LOGGING = {
 }
 
 # This setting is changed by the deploy script
-DOMAIN = "localhost"
+# DOMAIN = "localhost"
 
-ALLOWED_HOSTS = [DOMAIN]
+# ALLOWED_HOSTS = [DOMAIN]
