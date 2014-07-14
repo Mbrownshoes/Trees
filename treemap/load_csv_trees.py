@@ -10,7 +10,7 @@
 import os
 # os.environ.setdefault('DJANGO_SETTINGS_MODULE', 't.settings')
 
-from models import Harbord
+from .models import Harbord
 import csv
 from django.contrib.gis.geos import (Point, fromstr, fromfile, 
                 GEOSGeometry, MultiPoint, MultiPolygon, Polygon)

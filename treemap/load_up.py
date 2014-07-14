@@ -11,7 +11,7 @@ import os
 # os.environ.setdefault('DJANGO_SETTINGS_MODULE', 't.settings')
 
 from django.contrib.gis.geos import fromstr
-from models import Harbord
+from .models import Harbord
 import time
 import csv
 from pygeocoder import Geocoder

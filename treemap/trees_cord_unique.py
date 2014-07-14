@@ -2,7 +2,7 @@
 from django.contrib.gis.geos import Point, MultiPoint
 import random, decimal
 from django.db.models import Count
-from models import Trees
+from .models import Trees
 import re
 
 dupes = Trees.objects.values('geom').annotate(Count('id')).order_by().filter(id__count__gt=1)

@@ -4,8 +4,7 @@ from treemap import views
 # urlpatterns =patterns('',
 #     url(r'^$',views.MapView.as_view()))
 
-urlpatterns =patterns('',
-    # url(r'^$',views.index, name='index'),
-        (r'^$', views.map_page),
-     url(r'^/register/$', views.register, name='register'), 
-    )
+# urlpatterns =patterns('',
+#     # url(r'^$',views.index, name='index'),
+#     url(r'^$', views.map_page),
+#     )
