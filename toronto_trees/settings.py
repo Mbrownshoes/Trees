@@ -55,8 +55,10 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.gis',
+    'floppyforms',
     'treemap',
     'accounts',
+    
 )
 
 AUTHENTICATION_BACKENDS = (

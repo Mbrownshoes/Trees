@@ -44,21 +44,11 @@ var aerial = new OpenLayers.Layer.Bing({
 
 map.addLayers([aerial]);
 // 
-layer = new OpenLayers.Layer.WMS("Trees", "http://pbrown.ca:8080/geoserver/cite/wms",
+layer = new OpenLayers.Layer.WMS("Trees", "http://localhost:8080/geoserver/cite/wms",
  {layers: 'toronto_trees',transparent: true, tiled: true},
  {isBaseLayer: false}); 
 map.addLayer(layer);
 
-// Harbord layer
-// layer1 = new OpenLayers.Layer.WMS("Harbord Village", "http://localhost:8080/geoserver/cite/wms",
-//  {layers: 'cite:treemap_harbord',transparent: true, tiled: true,styles: "harbord"},
-//  {isBaseLayer: false}); 
-// map.addLayer(layer1);
-
-
-// map.addLayers([ 
-//   make_layer("http://overpass-api.de/api/interpreter?data=[timeout:3];node[natural=tree](bbox);out+skel;(way[natural=tree](bbox);node(w););out+skel;", "green")
-//   ]); 
 
 map.setCenter(new OpenLayers.LonLat(-79.3836,43.6525).transform(geographic,mercator), 15); 
 

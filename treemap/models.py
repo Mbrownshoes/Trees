@@ -34,10 +34,24 @@ class Harbord(models.Model):
     def __str__(self):
         return self.CommonSpeciesNames
 
-# class UserProfile(models.Model):
-#     user = models.OneToOneField(User)
+# class Feature(models.Model):
+#     trees = models.ForeignKey(Trees)
+#     geom_point = models.PointField(srid=4326, blank = True, null=True)
+#     geom_multipoint = models.MultiPointField(srid=4326, blank = True, null=True)
+#     objects = models.GeoManager()
 
-#     picture = models.ImageField(upload_to='profile_images', blank = True)
+#     def __str__(self):
+#         return self.id
 
-#     def __unicode__(self):
-#         return self.user.username
+
+
+
+
+
+
+
+
+
+
+
+
