@@ -1,0 +1,9 @@
+{% if fernwood_trees %}
+	<ul>
+	{% for tree in fernwood_trees %}
+		<li><a href ="{% url 'treemap:detail' tree.id %}"> {{ tree.common_nam }}</a></li>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>No trees are available.</p>
+{% endif %}
