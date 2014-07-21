@@ -6,12 +6,13 @@
 
 <html>
 <head>
-	<title>ShapeEditor</title>
+	<title>Urban Trees</title>
 	<script src="{% static "OpenLayers-2.13.1/OpenLayers.js" %}"></script>
 </head>
 <body>
-	<h1>Edit Feature</h1>
+	<h1>Move Tree to Correct Location</h1>
 	<form method="POST" action="">
+		{% csrf_token %}
 		<table>
 			<tr>
 				<td></td>
@@ -23,23 +24,22 @@
 			{{ form.as_table }}
 			<tr>	
 				<td></td>
-				<td align="right">
-					<table>
+				<!-- <td align="right"> -->
+					<!-- <table>
 						{% for attr in attributes %}
 						<tr>
 							<td>{{ attr.0 }}</td>
 							<td>{{ attr.1 }}</td>
 						</tr>
 						{% endfor %}
-					</table>
-				</td>
+					</table> -->
+				<!-- </td> -->
 			</tr> <tr>
 			<td></td>
 			<td align="center">
 				<input type="submit" value="Save"/>
 				&nbsp;
-				<button type="button" onClick='window.location="/editor/
-				edit/{{ shapefile.id }}";'>
+				<button type="button" onClick='window.location="/treemap/city_trees.{{ tree.id }}";'>
 				Cancel
 			</button>
 		</td>

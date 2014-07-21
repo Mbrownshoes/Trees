@@ -3,7 +3,7 @@ from pygeocoder import Geocoder
 from django.template import RequestContext
 from django.forms.widgets import HiddenInput
 from django.http import HttpResponseNotFound
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.views import generic
 
 from treemap import utils
@@ -47,8 +47,8 @@ def detail(request, trees_id):
         form = form_class({'geometry' : wkt})
 
         return render(request, "treemap/detail.html",
-                        {'Trees'    : Trees,
-                        'form'          : form})
+                        {'form'          : form,
+                        'tree' : tree})
 
     elif request.method == "POST":
         form = form_class(request.POST)
@@ -57,7 +57,10 @@ def detail(request, trees_id):
                 wkt = form.cleaned_data['geometry']
                 setattr(tree, geometry_field, wkt)
                 tree.save()
-                return HttpResponseRedirect("/editor/edit/" + shapefile_id)
+                return render(request, "treemap/detail.html",
+                        {'Trees'    : Trees,
+                        'form'          : form})
+
         except ValueError:
             pass
 
