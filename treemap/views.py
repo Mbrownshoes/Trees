@@ -10,19 +10,19 @@ from treemap import utils
 from treemap.models import Trees, Harbord
 
 def map_page(request):
-     lcount = Trees.objects.all().count()
-     return render(request,'treemap/map.html', {'tree_count' : lcount}) 
+    lcount = Trees.objects.all().count()
+    return render(request,'treemap/map.html', {'tree_count' : lcount}) 
 
-def editor(request):
-    return render(request,'treemap/editor.html', {'form': TreesForm})
+    def editor(request):
+        return render(request,'treemap/editor.html', {'form': TreesForm})
 
-class IndexView(generic.ListView):
-    template_name ='treemap/index.html'
-    context_object_name= 'fernwood_trees'
+        class IndexView(generic.ListView):
+            template_name ='treemap/index.html'
+            context_object_name= 'fernwood_trees'
 
-    def get_queryset(self):
-        """Return trees on Fernwood Park Ave"""
-        return Trees.objects.filter(address_fu__contains="Fernwood")
+            def get_queryset(self):
+                """Return trees on Fernwood Park Ave"""
+                return Trees.objects.filter(address_fu__contains="Fernwood")
 # def detail(request, trees_id):
 #     try:
 #         tree = Trees.objects.get(pk=trees_id)
@@ -47,7 +47,7 @@ def detail(request, trees_id):
         form = form_class({'geometry' : wkt})
 
         return render(request, "treemap/detail.html",
-                        {'form'          : form,
+                        {'form' : form,
                         'tree' : tree})
 
     elif request.method == "POST":
@@ -57,17 +57,15 @@ def detail(request, trees_id):
                 wkt = form.cleaned_data['geometry']
                 setattr(tree, geometry_field, wkt)
                 tree.save()
-                return render(request, "treemap/detail.html",
-                        {'Trees'    : Trees,
-                        'form'          : form})
+                return HttpResponseRedirect("/treemap/city_trees." + trees_id)
 
         except ValueError:
             pass
 
             return render(request, "treemap/detail.html",
-            {'Trees'    : Trees,
-            'form'          : form,
-            'attributes'    : attributes})  
+                {'Trees'    : Trees,
+                'form'          : form,
+                'attributes'    : attributes})  
 
 
 # class DetailView(generic.DetailView):

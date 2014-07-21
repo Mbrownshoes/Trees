@@ -3,7 +3,7 @@
 <li>{{tree.botanical_field }}</li>
 </ul> -->
 {% load static %}
-{% load browserid %}
+<!-- {% load browserid %} -->
 
 <html>
 <head>
@@ -25,9 +25,9 @@
 <body>
 	<div class="container">
 		<h1>Move tree to correct location</h1>
-				{% browserid_info %}
-				{% if user.email %}
-				{{ form.as_table }}
+	<!-- 	{% browserid_info %}
+		{% if user.email %} -->
+		{{ form.as_table }}
 		<form method="POST" action="">
 			{% csrf_token %}
 			<table>
@@ -43,22 +43,23 @@
 				<tr>	
 					<td></td>
 
-				</tr> <tr>
-				<td></td>
-				<td align="center">
-					<input type="submit" value="Save"/>
-					&nbsp;
-					<button type="button" onClick='window.location="/treemap/city_trees.{{ tree.id }}";'>
-						Cancel
-					</button>
-				</td>
-			</tr>
-		</table>
-	</form>
-	{% else %}
-	<h3>You need to sign in in order to edit tree locations</h3>
-	<a href="/treemap"> Return to main page and sign in </a>
-	{% endif %}
-</body>
+				</tr> 
+				<tr>
+					<td></td>
+					<td align="center">
+						<input type="submit" value="Save"/>
+						&nbsp;
+						<button type="button" onClick='window.location="/treemap/city_trees.{{ tree.id }}";'>
+							Cancel
+						</button>
+					</td>
+				</tr>
+			</table>
+		</form>
+	<!-- 	{% else %}
+		<h3>You need to sign in in order to edit tree locations</h3>
+		<a href="/treemap"> Return to main page and sign in </a>
+		{% endif %} -->
+	</body>
 </div>
 </html>													
