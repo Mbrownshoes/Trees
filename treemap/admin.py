@@ -4,3 +4,4 @@ from treemap.models import Trees, Harbord
 
 admin.site.register(Trees, admin.OSMGeoAdmin)
 admin.site.register(Harbord, admin.OSMGeoAdmin )
+

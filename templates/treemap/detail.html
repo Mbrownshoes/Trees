@@ -60,10 +60,12 @@
 	</tr>
 </table>
 </form>
-{% else %}
-<a href ="/treemap">You need to be logged in to move trees. Return to main site to login</a>
-{% endif %}
 <a href ="/treemap">Return to main map</a>
+{% else %}
+<h3>You need to be singed in to move trees</h3>
+<a href ="/treemap">Return to main site to sign in</a>
+{% endif %}
+
 </div>
 </body>
 </html>													

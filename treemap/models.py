@@ -1,5 +1,6 @@
 from django.contrib.gis.db import models
 from django.contrib.auth.models import User
+
 # Create your models here.
 
 class Trees(models.Model):
@@ -13,6 +14,7 @@ class Trees(models.Model):
     tree_posit = models.IntegerField()
     geom = models.MultiPointField(srid=4326)
     objects = models.GeoManager()
+    
     # mpoly = models.MultiPolygonField()
 
     def __str__(self):
