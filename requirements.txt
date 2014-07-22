@@ -8,5 +8,4 @@ psycopg2==2.5.3
 pygeocoder==1.2.5
 requests==2.3.0
 selenium==2.42.1
-simple-history==1.0
 six==1.7.3
