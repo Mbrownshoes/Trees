@@ -58,9 +58,9 @@
                         {% if user.email %}
                         <a class="page-scroll" id="id_logout" href="{% url 'logout' %}">Log out</a>
                     </li>
-                    <li>
+                    <li id="id_login">
                         <a class="page-scroll ">Logged in as {{ user.email }}</a>
-                    </li>
+                    
                         {% else %}
                         {% browserid_login %}
                         {% endif %}
