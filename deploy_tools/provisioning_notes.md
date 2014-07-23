@@ -18,9 +18,25 @@ eg, on Ubuntu:
 
 * see nginx.template.conf
 * replace SITENAME with, eg, staging.my-domain.com
+* current setup on iguana is:
+
+server {
+    listen 80;
+    server_name iguana.cs.toronto.edu;
+	
+    location /static {
+	alias /home/mbrown/sites/iguana.cs.toronto.edu/static;	
+	}
+    location / {
+	rewrite .* http://urbantrees.ca/treemap permanent;
+    }
+    location /treemap {
+        proxy_pass http://localhost:8000/treemap;
+    }
+}
 
 ## Upstart Job
-
+* install gunicorn using ../virtualenv/bin/pip3 install gunicorn==18
 * see gunicorn-upstart.template.conf
 * replace SITENAME with, eg, staging.my-domain.com
 
