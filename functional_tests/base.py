@@ -39,7 +39,7 @@ class FunctionalTest(StaticLiveServerCase):
         self.assertIn(row_text, [row.text for row in rows])
 
     def wait_for_element_with_id(self, element_id):
-        WebDriverWait(self.browser, timeout=30).until(
+        WebDriverWait(self.browser, timeout=10).until(
             lambda b: b.find_element_by_id(element_id),
             'Could not find element with id {}. Page text was {}'.format(
                 element_id, self.browser.find_element_by_tag_name('body').text
@@ -53,6 +53,6 @@ class FunctionalTest(StaticLiveServerCase):
 
 
     def wait_to_be_logged_out(self, email):
-        self.wait_for_element_with_id('id_login')
+        self.wait_for_element_with_id('browserid-info')
         navbar = self.browser.find_element_by_css_selector('.navbar')
         self.assertNotIn(email, navbar.text)   

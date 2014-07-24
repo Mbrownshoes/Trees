@@ -34,3 +34,7 @@ Assume we have a user account at /home/username
          ├── source
          ├── static
          └── virtualenv
+
+Files outside repository and customizations
+* added bing layer to openlayers.js in the django gis/admin dir. Implemented on mbrown-staging site.
+
