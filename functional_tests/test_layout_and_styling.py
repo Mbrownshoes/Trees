@@ -1,4 +1,4 @@
-from functional_tests.base import FunctionalTest
+from .base import FunctionalTest
 
 class LaoutAndStylingTest(FunctionalTest):
 
@@ -8,4 +8,11 @@ class LaoutAndStylingTest(FunctionalTest):
         self.browser.set_window_size(1024, 768)
 
         #He notices the title nicely centered
+        heading = self.get_item_heading()
+        self.assertAlmostEqual(
+            heading.location['x'] + heading.size['width']/2,
+            512,
+            delta=5
+            )
+        #He notices a map and sees a bunch of green dots appear
         

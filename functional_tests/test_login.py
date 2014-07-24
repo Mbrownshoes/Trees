@@ -2,7 +2,7 @@
 import time
 from .base import FunctionalTest
 
-TEST_EMAIL = 'edith@mockmyid.com'
+TEST_EMAIL = 'arlo@mockmyid.com'
 
 
 class LoginTest(FunctionalTest):
@@ -20,7 +20,7 @@ class LoginTest(FunctionalTest):
 
 
     def test_login_with_persona(self):
-        # Edith goes to the awesome superlists site
+        # Arlo goes to the awesome treemap site
         # and notices a "Sign in" link for the first time.
         self.browser.get(self.server_url)
         self.browser.find_element_by_partial_link_text('Sign').click()
@@ -28,7 +28,7 @@ class LoginTest(FunctionalTest):
         # A Persona login box appears
         self.switch_to_new_window('Mozilla Persona')
 
-        # Edith logs in with her email address
+        # Arlo logs in with her email address
         ## Use mockmyid.com for test email
         self.browser.find_element_by_id(
             'authentication_email'
@@ -46,7 +46,7 @@ class LoginTest(FunctionalTest):
         self.browser.refresh()
         self.wait_to_be_logged_in(email=TEST_EMAIL)
 
-        # Terrified of this new feature, she reflexively clicks "logout"
+        # Terrified of this new feature, he reflexively clicks "logout"
         self.browser.find_element_by_id('id_logout').click()
         self.wait_to_be_logged_out(email=TEST_EMAIL)
 
