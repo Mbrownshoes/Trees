@@ -15,7 +15,8 @@ class Trees(models.Model):
     geom = models.MultiPointField(srid=4326)
     objects = models.GeoManager()
     
-    # mpoly = models.MultiPolygonField()
+    class Meta:
+        unique_together =('address_po','struct_id','objectid')
 
     def __str__(self):
         return self.common_nam
