@@ -50,7 +50,7 @@ var aerial = new OpenLayers.Layer.Bing({
 
 map.addLayers([aerial]);
 // 
-layer = new OpenLayers.Layer.WMS("Trees", "http://localhost:8080/geoserver/cite/wms",
+layer = new OpenLayers.Layer.WMS("Trees", "http://pbrown.ca:8080/geoserver/cite/wms",
  {layers: 'toronto_trees',transparent: true, tiled: true},
  {isBaseLayer: false}); 
 map.addLayer(layer);
@@ -107,9 +107,6 @@ OpenLayers.Control.ListenToClick = OpenLayers.Class(OpenLayers.Control, {
 
 
 
-
-
-
 });
 var ctmControl = new OpenLayers.Control.ListenToClick({
   handlerOptions: {
@@ -121,6 +118,7 @@ var ctmControl = new OpenLayers.Control.ListenToClick({
 map.addControl(ctmControl);
 ctmControl.activate();
 
+map.addLayers([vector]);
 var pulsate = function(feature) {
     var point = feature.geometry.getCentroid(),
         bounds = feature.geometry.getBounds(),
@@ -178,11 +176,11 @@ geolocate.events.register("locationupdated",geolocate,function(e) {
             e.point,
             {},
             {
-                graphicName: 'cross',
+                graphicName: 'circle',
                 strokeColor: '#f00',
                 strokeWidth: 2,
                 fillOpacity: 0,
-                pointRadius: 10
+                pointRadius: 5
             }
         ),
         circle

@@ -10,8 +10,7 @@ from treemap import utils
 from treemap.models import Trees, Harbord
 
 def map_page(request):
-     lcount = Trees.objects.all().count()
-     return render(request,'treemap/map.html', {'tree_count' : lcount}) 
+     return render(request,'treemap/map.html') 
 
 def editor(request):
     return render(request,'treemap/editor.html', {'form': TreesForm})
