@@ -33,7 +33,7 @@ def detail(request, trees_id):
 
     try:
         tree = Trees.objects.get(id=trees_id)
-    except Tree.DoesNotExist:
+    except tree.DoesNotExist:
         return HttpResponseNotFound()        
     
 
