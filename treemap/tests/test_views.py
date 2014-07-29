@@ -30,5 +30,9 @@ class DetailPageTest(TestCase):
     # def test_displays_tree_form(self):
     #     tree_ = Trees.objects.create(common_nam='bla',address_po='1',address_fu='foo',objectid='1',struct_id='1',botanical_field='bar',diameter_b='1',tree_posit='1',geom='MULTIPOINT(-1.464854 52.561928)')
     #     response = self.client.get('/city_trees.%d/' % (tree_.id,))
-    #     self.assertIsInstance(response.context['form'], form )
+    #     form_class = get_map_form(tree_.id) 
+    #     geometry_field = 'geom'
+    #     wkt = getattr(tree_, geometry_field)
+    #     form = form_class({'geometry' : wkt})
+    #     self.assertIsInstance(response.context['form'], {'form' : form})
 
