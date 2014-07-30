@@ -5,9 +5,11 @@ from django.forms.widgets import HiddenInput
 from django.http import HttpResponseNotFound
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views import generic
+from django.forms.models import model_to_dict
 
 from treemap import utils
 from treemap.models import Trees, Harbord
+from .forms import MapForm
 
 def map_page(request):
      return render(request,'treemap/map.html') 
@@ -22,12 +24,7 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         """Return trees on Fernwood Park Ave"""
         return Trees.objects.filter(address_fu__contains="Fernwood")
-# def detail(request, trees_id):
-#     try:
-#         tree = Trees.objects.get(pk=trees_id)
-#     except Trees.DoesNotExist:
-#         raise Http404
-#     return render(request, 'treemap/detail.html', {'tree': tree})
+
 
 def detail(request, trees_id):
 
@@ -36,20 +33,23 @@ def detail(request, trees_id):
     except tree.DoesNotExist:
         return HttpResponseNotFound()        
     
+    # attributes = model_to_dict(Trees.objects.get(pk=trees_id), exclude=('geom', 'tree_posit', 'address_po','id', 'struct_id', 'objectid') )
+
+    # form = MapForm()
 
     geometry_field = 'geom'
-    model_id = 'Trees'
-    form_class = utils.get_map_form(model_id)
+    # model_id = 'Trees'
+    feature = tree
+    wkt = getattr(tree, geometry_field)
+    form = MapForm(initial={'feature' : 'geom'})
 
-    if request.method == "GET":
-        wkt = getattr(tree, geometry_field)
-        form = form_class({'geometry' : wkt})
+    # if request.method == "GET":
+        # wkt = getattr(tree, geometry_field)
+        # form = form_class(initial={'geometry' : wkt})
 
-        return render(request, "treemap/detail.html",
-                        {'form'          : form,
-                        'tree' : tree})
+    return render(request, 'treemap/detail.html', {'tree': tree, "form": form})
 
-    elif request.method == "POST":
+    if request.method == "POST":
         form = form_class(request.POST)
         try:
             if form.is_valid():

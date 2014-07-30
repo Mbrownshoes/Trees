@@ -1,6 +1,6 @@
 
 var map, layer, info;
-var vector = new OpenLayers.Layer.Vector('vector');
+var vector = new OpenLayers.Layer.Vector('vector', {'displayInLayerSwitcher':false});
 var style = {
     fillColor: '#000',
     fillOpacity: 0.1,
@@ -100,7 +100,7 @@ OpenLayers.Control.ListenToClick = OpenLayers.Class(OpenLayers.Control, {
 
     if (url) {
       document.getElementById('info').innerHTML =
-      '<iframe seamless src="' + url + '" scrolling="no" align="middle"  frameBorder="0" height=100%></iframe>';
+      '<iframe seamless src="' + url + '" scrolling="no" align="middle"  frameBorder="0" height=150%></iframe>';
     }
     // url.activate();
   },

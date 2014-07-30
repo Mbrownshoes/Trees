@@ -57,7 +57,6 @@ INSTALLED_APPS = (
     'django.contrib.gis',
     'floppyforms',
     'treemap',
-    'accounts',    
 )
 
 AUTHENTICATION_BACKENDS = (

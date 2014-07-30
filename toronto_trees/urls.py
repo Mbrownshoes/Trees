@@ -11,9 +11,10 @@ urlpatterns = patterns('',
     # url(r'^$', 'toronto_trees.views.home', name='home'),
     url(r'', include('treemap.urls', namespace='treemap')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^accounts/', include('accounts.urls')), 
+    # url(r'^accounts/', include('accounts.urls')), 
     url(r'', include('django_browserid.urls')),
-    url(r'^editor', include('treemap.urls')),
+    # url(r'^editor', include('treemap.urls')),
+    url(r'^logout$', 'django.contrib.auth.views.logout', {'next_page': '/'}, name='logout'),
 
 )
 # urlpatterns += staticfiles_urlpatterns()
