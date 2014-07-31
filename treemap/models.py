@@ -1,3 +1,5 @@
+# from django.conf import settings
+
 from django.contrib.gis.db import models
 from django.contrib.auth.models import User
 
@@ -13,6 +15,7 @@ class Trees(models.Model):
     tree_posit = models.IntegerField()
     geom = models.MultiPointField(srid=4326)
     objects = models.GeoManager()
+    # owner = models.ForeignKey(settings.AUTH_USER_MODEL, blank=True, null=True)
 
     def get_absolute_url(self):
         return reverse('detail', args=[self.id])
