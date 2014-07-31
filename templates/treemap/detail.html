@@ -40,7 +40,7 @@
 
 						</tr> <tr>
 						<td></td>
-						<td align="center">
+						<td style='padding: 10px' align="center">
 							<button type="submit" class="btn btn-default btn-lg" value="Save">Save</button>
 							<!-- <a type="submit" class="btn btn-default btn-lg" value="Save">Save</a> -->
 							&nbsp;
@@ -56,9 +56,10 @@
 		<div class="col-md-4">
 			<table class="table">
 				<tbody>
+					<!-- {% filter capfirst %} -->
 				<tr>
 					<td><b>Common name</b></td>
-					<td>{{ tree.common_nam }}</td>
+					<td>{{ tree.common_nam|lower|capfirst }}</td>
 				</tr>
 				<tr>
 					<td><b>Species</b></td>
@@ -68,12 +69,13 @@
 					<td><b>DBH</b></td>
 					<td>{{ tree.diameter_b }}</td>
 				</tr>
+					<!-- {% endfilter %} -->
 				<tbody>		
 			</table>
 		</div>
 	</div>
 	
-	<p><a href ="/">Return to main map</a></p>
+	<p><a href ="/#main">Return to main map</a></p>
 	{% else %}
 	<h3>You need to be singed in to move trees</h3>
 	<a href ="/">Return to main site to sign in</a>

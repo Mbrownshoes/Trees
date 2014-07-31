@@ -25,12 +25,13 @@
 
 <section id ='main' class=" map-section">
     <div id ="map" class="map"></div>
-
+{% filter capfirst %}
     <div class="sidebar">
+
         <div id="info"></div>
   <a id ="locate" class="btn btn-default btn-lg">Locate me!</a>
     </div>
-    
+    {% endfilter %}
 </section>
     
 <section id="about" class="content-section text-center">

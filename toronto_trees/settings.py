@@ -66,7 +66,7 @@ AUTHENTICATION_BACKENDS = (
    # ...
 )
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/#main'
 
 BROWSERID_AUDIENCES = ['http://localhost', 'http://127.0.0.1:8000','http://localhost:8081']
 
