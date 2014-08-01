@@ -1,3 +1,4 @@
+import datetime
 from django.shortcuts import redirect, render,get_object_or_404
 from pygeocoder import Geocoder
 from django.template import RequestContext
@@ -5,9 +6,13 @@ from django.forms.widgets import HiddenInput
 from django.http import HttpResponseNotFound
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views import generic
-
+from django.contrib.admin.models import LogEntry
+from django.shortcuts import render_to_response
 from treemap import utils
 from treemap.models import Trees, Harbord
+
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 def map_page(request):
      return render(request,'treemap/map.html') 
@@ -69,6 +74,17 @@ def detail(request, trees_id):
             'attributes'    : attributes})  
 
 
-# class DetailView(generic.DetailView):
-#     model = Trees
-#     template_name = 'treemap/detail.html'
+def view_dash(request):
+    today = datetime.date.today()
+    user = request.user 
+    proj_perm = user.has_perm('project.add_project')
+    project = Trees.objects.all().order_by('-proj_name')
+    query = Trees.objects.all().order_by('-id')[:5]
+    # que_quotes = Trees.objects.filter(status__value__exact = 'Quote')
+    # expired = FollowUp.objects.filter(next_followup__lte=today).order_by('next_followup').filter(archived=False)
+    log = LogEntry.objects.select_related().all().order_by("-id")
+    hist = Trees.history.all()
+    # user = User.objects.get(email)
+    # print(user)
+    return render_to_response('treemap/dash.html', {'user': user, 'project': project, 'query':query,
+                                                      'proj_perm':proj_perm, 'log': log, 'hist':hist,}, context_instance=RequestContext(request))

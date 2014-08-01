@@ -3,9 +3,9 @@ from django.conf import settings
 from django.contrib.gis.db import models
 from django.contrib.auth.models import User
 
-# from simple_history.models import HistoricalRecords
+from simple_history.models import HistoricalRecords
 
- 
+
 
 class Trees(models.Model):
     address_po = models.IntegerField()
@@ -18,16 +18,8 @@ class Trees(models.Model):
     tree_posit = models.IntegerField()
     geom = models.MultiPointField(srid=4326)
     objects = models.GeoManager()
-    # changed_by = models.ForeignKey(settings.AUTH_USER_MODEL, blank=True, null=True)
-    # history = HistoricalRecords()
-    # @property
-    # def _history_user(self):
-    #     return self.changed_by
-
-    # @_history_user.setter
-    # def _history_user(self, value):
-    #     self.changed_by = value
-
+    history = HistoricalRecords()
+ 
     def get_absolute_url(self):
         return reverse('detail', args=[self.id])
     

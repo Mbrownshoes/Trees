@@ -1,0 +1,16 @@
+<html>
+<head>
+    <title>Tree Dash</title>
+    
+</head>
+<body onload="init()">
+<div id="large_box">
+    <h5>Activity</h5>
+        {% for h in hist %}
+        <ul>
+            <li>{{ h.history_type }} {{ h.history_id }} {{ h.history_object }} on {{ h.history_date }}. User: {{ h.history_user }} </li>
+            <li></li>
+        </ul>
+        {% endfor %}
+  </body>
+</html>

@@ -56,6 +56,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.gis',
     'treemap',
+    'simple_history',
 )
 
 AUTHENTICATION_BACKENDS = (
@@ -76,6 +77,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'simple_history.middleware.HistoryRequestMiddleware',
 )
 
 ROOT_URLCONF = 'toronto_trees.urls'
