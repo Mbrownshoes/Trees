@@ -68,7 +68,7 @@ AUTHENTICATION_BACKENDS = (
 
 LOGIN_REDIRECT_URL = '/'
 
-BROWSERID_AUDIENCES = ['http://localhost', 'http://127.0.0.1:8000','http://localhost:8081']
+BROWSERID_AUDIENCES = ['http://localhost', 'http://127.0.0.1:8000','http://localhost:8081','http://mbrown-staging.noip.me:81']
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',

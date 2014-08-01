@@ -1,8 +1,9 @@
-https://www.djangoproject.com/download/1.7c1/tarball/
+Django==1.7c1
 South==0.8.4
 django-braces==1.4.0
 django-browserid==0.10.1
 django-floppyforms==1.2.0
+django-simple-history==1.4.0
 fancy-tag==0.2.0
 psycopg2==2.5.3
 pygeocoder==1.2.5
