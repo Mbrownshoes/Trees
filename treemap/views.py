@@ -62,8 +62,8 @@ def detail(request, trees_id):
                 setattr(tree, geometry_field, wkt)
                 tree.save()
                 return render(request, "treemap/detail.html",
-                        {'Trees'    : Trees,
-                        'form'          : form})
+                        {'form'          : form,
+                        'tree' : tree})
 
         except ValueError:
             pass
