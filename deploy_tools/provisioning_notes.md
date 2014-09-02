@@ -38,5 +38,5 @@ Assume we have a user account at /home/username
 ## Files outside repository and customizations:
 * content.ftl files on server currently have to be manual changed.
 
-* added bing layer to openlayers.js in the django gis/admin dir. Removed add feature from toolbar. Implemented on mbrown-staging site.
+* added bing layer to openlayers.js and added gis/admin/custom-map.js in the django gis/admin dir. Removed add feature from toolbar. Implemented on mbrown-staging site.
 
